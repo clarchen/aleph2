@@ -1,0 +1,199 @@
+:root {
+    --bg-color: #050505;
+    --text-color: #e0e0e0;
+    --accent-color: #ffffff;
+    --subtle-color: #888888;
+    
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+    
+    --spacing-sm: 1rem;
+    --spacing-md: 2.5rem;
+    --spacing-lg: 5rem;
+    --spacing-xl: 8rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-body);
+    font-weight: 300;
+    line-height: 1.8;
+    overflow-x: hidden;
+    /* Smooth scrolling mostly for anchor links if added later */
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+/* Background Canvas */
+#aleph-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    pointer-events: none; /* Let clicks pass through to content */
+    opacity: 0.6;
+}
+
+/* Content Container */
+.content-wrapper {
+    position: relative;
+    z-index: 10;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: var(--spacing-md) var(--spacing-sm);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Typography */
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    color: var(--accent-color);
+    font-weight: 400;
+    letter-spacing: 0.05em;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-sm);
+    margin-top: var(--spacing-lg);
+}
+
+p {
+    margin-bottom: var(--spacing-sm);
+    color: #cccccc;
+    font-size: 1.1rem;
+}
+
+p em {
+    font-style: italic;
+    color: var(--accent-color);
+}
+
+/* Header & Logo */
+header {
+    margin-top: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+    text-align: center;
+}
+
+.logo {
+    font-size: 4rem;
+    letter-spacing: 0.1em;
+    font-style: italic;
+}
+
+.logo .sub {
+    font-size: 1.5rem;
+    vertical-align: super; /* or sub, but super looks cooler sometimes for exponent */
+    margin-left: -0.1em;
+    color: var(--subtle-color);
+    font-family: var(--font-body);
+    font-style: normal;
+}
+
+/* Sections */
+section {
+    margin-bottom: var(--spacing-lg);
+}
+
+.intro p {
+    font-size: 1.25rem;
+    line-height: 1.9;
+    margin-bottom: var(--spacing-md);
+    color: #e0e0e0;
+}
+
+.intro .math {
+    border-left: 1px solid rgba(255,255,255,0.2);
+    padding-left: 2rem;
+    margin-left: 1rem;
+    font-size: 1.1rem;
+    color: var(--subtle-color);
+}
+
+/* Footer & Contact */
+footer {
+    margin-top: auto; /* Push to bottom if content is short */
+    padding-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-lg);
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+footer h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+}
+
+.email-link {
+    display: inline-block;
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.25rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    font-family: var(--font-body);
+    margin-bottom: var(--spacing-md);
+}
+
+.email-link:hover {
+    background-color: rgba(255,255,255,0.05);
+    border-color: rgba(255,255,255,0.3);
+    color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+.copyright {
+    font-size: 0.85rem;
+    color: var(--subtle-color);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* Animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    header {
+        margin-top: var(--spacing-lg);
+        margin-bottom: var(--spacing-lg);
+    }
+    
+    .logo {
+        font-size: 3rem;
+    }
+    
+    .content-wrapper {
+        padding: var(--spacing-sm) 1.5rem;
+    }
+    
+    .intro .math {
+        padding-left: 1rem;
+        margin-left: 0;
+    }
+}
